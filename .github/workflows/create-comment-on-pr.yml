@@ -10,14 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v2.1.0
+        uses: actions/checkout@v3
         id: files
 
       - name: Read package.json
         id: package
         uses: juliangruber/read-file-action@v1
         with:
-          path: ../../package.json
+          path: package.json
 
       - name: Echo package.json
         run: echo "${{ steps.package.outputs.content }}"
@@ -28,4 +28,4 @@ jobs:
           issue-number: $PR_NUMBER
           body: |
             File with content ${{ steps.package.outputs.content }}
-          reactions: '+1'
+          reactions: "+1"
