@@ -3,7 +3,7 @@ on: pull_request
 name: Create comment
 
 env:
-  PR_NUMBER: $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+  PR_NUMBER: ${{ github.event.number }}
 
 jobs:
   create_comment_pr:
