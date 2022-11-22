@@ -1,0 +1,54 @@
+# Jira card / Github issue
+<!-- Strictly required to include:
+1. JIRA card: The card can be created by yourself but please ensure EM & PO confirmed.
+2. Or Github issue: The issue needs to be confirmed by @fe-platform.
+-->
+
+(Fill in here)
+
+# Description
+<!-- Detailed explanation of
+1. What is this PR for?
+2. Why you come up with the solution?
+-->
+
+(Fill in here)
+
+# Screenshots / Videos
+<!-- Screenshots are required for static UI changes:
+1. Fullscreen capture is recommended. You may add some markers to help reviewer recognise the change.
+2. THREE screensize (Desktop, Ipad, Iphone) captures are required if this PR touches the layout.
+-->
+
+<!-- Videos (or gifs) are required for interaction changes: Make it short so reviewer can review quickly. -->
+
+<!-- If there is no image or video attached, please add an explanation. -->
+
+(Fill in here)
+
+
+# Testing plan
+<!-- Try to think we are a tester to read this PR change and prepare a testing plan for it:
+1. The testing plan needs to be run on staging/sandbox environment.
+2. [Optional] Provide the testing account & environment: Eg
+- Account: ben@thinkei.com/P@ssword17e4
+- Sandbox: instapay.staging.ehrocks.com
+3. The common pattern of testing plan is:
+- [ ] On the page .....
+      When I do something ....
+      Then I see .....
+      And Something else.....
+-->
+<!-- If we don't have a testing plan, we can't ensure the PR gets merged won't cause any incident. -->
+
+(Fill in here)
+
+# Checklist
+
+ - [ ] Have you confirmed the change with PO and/or EM?
+ - [ ] Is your backend ready? Or do you have flag to restrict access your front-end?
+ - [ ] Have you tested the change on any sandbox/staging?
+ - [ ] Have you applied hero-design/hero-theme in your changed UIs?
+ - [ ] Have you updated CODEOWNERS and CODEOWNERS.url?
+ - [ ] Have you attached Mobile/Tablet/Desktop screenshots in case of UI changes?
+ - [ ] Have you applied I18n for all the text of your changed files?
