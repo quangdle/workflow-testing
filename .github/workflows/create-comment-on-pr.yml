@@ -2,6 +2,9 @@ on: pull_request
 
 name: Create comment
 
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 jobs:
   create_comment_pr:
     runs-on: ubuntu-latest
@@ -19,14 +22,10 @@ jobs:
       - name: Echo package.json
         run: echo "${{ steps.package.outputs.content }}"
 
-      - name: Get pull request number
-        uses: 8BitJonny/gh-get-current-pr@2.1.3
-        id: PR
-
       - name: Comment with file content
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: ${{ steps.PR.outputs.number }}
+          issue-number: $PR_NUMBER
           body: |
             File with content ${{ steps.package.outputs.content }}
           reactions: "+1"
