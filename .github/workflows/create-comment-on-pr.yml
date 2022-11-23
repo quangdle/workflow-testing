@@ -2,22 +2,19 @@ on: pull_request
 
 name: Create comment
 
-env:
-  PR_NUMBER: $(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
-
 jobs:
   create_comment_pr:
     runs-on: ubuntu-latest
     steps:
       - name: Check out
-        uses: actions/checkout@v2.1.0
+        uses: actions/checkout@v3
         id: files
 
       - name: Read package.json
         id: package
         uses: juliangruber/read-file-action@v1
         with:
-          path: ../../package.json
+          path: package.json
 
       - name: Echo package.json
         run: echo "${{ steps.package.outputs.content }}"
@@ -25,7 +22,7 @@ jobs:
       - name: Comment with file content
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: $PR_NUMBER
+          issue-number: $(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
           body: |
             File with content ${{ steps.package.outputs.content }}
-          reactions: '+1'
+          reactions: "+1"
