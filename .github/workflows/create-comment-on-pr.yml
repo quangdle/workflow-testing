@@ -19,10 +19,14 @@ jobs:
       - name: Echo package.json
         run: echo "${{ steps.package.outputs.content }}"
 
+      - name: Get pull request number
+        uses: 8BitJonny/gh-get-current-pr@2.1.3
+        id: PR
+
       - name: Comment with file content
         uses: peter-evans/create-or-update-comment@v2
         with:
-          issue-number: 1
+          issue-number: ${{ steps.PR.outputs.number }}
           body: |
             File with content ${{ steps.package.outputs.content }}
           reactions: "+1"
