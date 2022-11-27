@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: octocat/get-suggestion-action@v1.1
+        uses: quangdle/get-suggestion-action@v1.1
         with:
           who-to-greet: "Quang Le"
       # Use the output from the `hello` step
