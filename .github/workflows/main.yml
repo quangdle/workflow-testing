@@ -7,6 +7,16 @@ jobs:
     steps:
       - name: Check out
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v34
+        with:
+          since_last_remote_commit: true
+          separator: ","
+
       - uses: actions/setup-node@v3
         with:
           node-version: "16"
@@ -20,6 +30,7 @@ jobs:
         with:
           who-to-greet: "Quang Le"
           main_schema_path: ${{ github.workspace }}
+          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
 
       # Use the output from the `hello` step
       - name: Get the output time
