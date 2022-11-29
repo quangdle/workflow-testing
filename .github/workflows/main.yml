@@ -5,11 +5,16 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
       - name: Hello world action step
         id: hello
-        uses: quangdle/get-suggestion-action@v1.4
+        uses: quangdle/get-suggestion-action@v1.5
         with:
           who-to-greet: "Quang Le"
+          main_schema_path: ${{ github.workspace }}
+
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
