@@ -11,9 +11,12 @@ jobs:
         with:
           node-version: "16"
 
+      - name: Install dependencies
+        run: npm install jscodeshift -g
+
       - name: Hello world action step
         id: hello
-        uses: quangdle/get-suggestion-action@v1.10
+        uses: quangdle/get-suggestion-action@v1.11
         with:
           who-to-greet: "Quang Le"
           main_schema_path: ${{ github.workspace }}
