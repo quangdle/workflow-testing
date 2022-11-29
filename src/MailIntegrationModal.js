@@ -148,6 +148,7 @@ const MailIntegrationModal = ({
               width: 200,
               margin: "auto",
               display: "block",
+              backgroundColor: theme.colors.palette.redLight60,
             }}
           />
 
