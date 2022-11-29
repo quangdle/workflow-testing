@@ -13,10 +13,6 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v34
-        with:
-          files: |
-            *.js
-            *.ts
 
       - uses: actions/setup-node@v3
         with:
