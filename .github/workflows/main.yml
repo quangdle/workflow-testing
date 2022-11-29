@@ -15,7 +15,9 @@ jobs:
         uses: tj-actions/changed-files@v34
         with:
           since_last_remote_commit: true
-          separator: ","
+          files: |
+            *.js
+            *.ts
 
       - uses: actions/setup-node@v3
         with:
@@ -26,11 +28,12 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: quangdle/get-suggestion-action@v1.14
+        uses: quangdle/get-suggestion-action@v1.16
         with:
           who-to-greet: "Quang Le"
           main_schema_path: ${{ github.workspace }}
           changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
+          my-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Use the output from the `hello` step
       - name: Get the output time
