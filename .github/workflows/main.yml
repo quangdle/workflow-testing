@@ -16,7 +16,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: quangdle/get-suggestion-action@v1.12
+        uses: quangdle/get-suggestion-action@v1.13
         with:
           who-to-greet: "Quang Le"
           main_schema_path: ${{ github.workspace }}
