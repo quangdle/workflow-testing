@@ -1,4 +1,4 @@
-on: [push]
+on: [pull_request]
 
 jobs:
   hello_world_job:
@@ -10,7 +10,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: quangdle/get-suggestion-action@v1.7
+        uses: quangdle/get-suggestion-action@v1.8
         with:
           who-to-greet: "Quang Le"
           main_schema_path: ${{ github.workspace }}
