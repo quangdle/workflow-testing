@@ -138,7 +138,7 @@ const MailIntegrationModal = ({
             padding: theme.space.medium,
             borderTopLeftRadius: theme.radii.medium,
             borderTopRightRadius: theme.radii.medium,
-            backgroundColor: theme.colors.palette.pinkLight90,
+            backgroundColor: theme.colors.palette.pinkLight70,
           }}
         >
           <img
