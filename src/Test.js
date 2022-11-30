@@ -46,7 +46,7 @@ const TitleSpacing = styled.div`
   margin-bottom: ${themeGet("space.medium")}px;
 `;
 
-const StyledCloseButton = styled(Modal.CloseButton)`
+const Quang = styled(Modal.CloseButton)`
   cursor: ${({ disabled }) =>
     disabled ? "not-allowed" : "pointer"} !important;
   color: ${({ disabled, theme }) =>
