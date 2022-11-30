@@ -41,7 +41,10 @@ jobs:
           changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
           my-token: ${{ secrets.GITHUB_TOKEN }}
           pr-number: ${{ steps.findPr.outputs.pr }}
+          commit: ${{ env.GITHUB_SHA }}
 
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+      - run: echo "SHA ${GITHUB_SHA}"
