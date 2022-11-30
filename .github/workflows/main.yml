@@ -40,7 +40,7 @@ jobs:
           main_schema_path: ${{ github.workspace }}
           changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
           my-token: ${{ secrets.GITHUB_TOKEN }}
-          pr-number: ${{ env.PR }}
+          pr-number: $PR
 
       # Use the output from the `hello` step
       - name: Get the output time
