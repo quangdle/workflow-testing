@@ -308,4 +308,4 @@ const MailIntegrationModal = ({
 };
 
 export default MailIntegrationModal;
-const a = 6;
+const a = 7;
