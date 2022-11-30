@@ -1,8 +1,5 @@
 on: [push]
 
-env:
-  PR_NUMBER: ${{ github.event.number }}
-
 jobs:
   hello_world_job:
     permissions: write-all
@@ -34,7 +31,7 @@ jobs:
           changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
           my-token: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: echo "github PR number $PR_NUMBER"
+      - run: echo "github PR number $GITHUB_REF"
 
       # Use the output from the `hello` step
       - name: Get the output time
