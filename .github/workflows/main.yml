@@ -1,0 +1,47 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
+
+      - run: echo "Your PR is ${PR}"
+        if: success() && steps.findPr.outputs.number
+        env:
+          PR: ${{ steps.findPr.outputs.pr }}
+
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v34
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - name: Install dependencies
+        run: npm install jscodeshift -g
+
+      - name: Hello world action step
+        id: hello
+        uses: quangdle/get-suggestion-action@v1.20
+        with:
+          who-to-greet: "Quang Le"
+          main_schema_path: ${{ github.workspace }}
+          changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
+          my-token: ${{ secrets.GITHUB_TOKEN }}
+          pr-number: ${{ steps.findPr.outputs.pr }}
+
+      # Use the output from the `hello` step
+      - name: Get the output time
+        run: echo "The time was ${{ steps.hello.outputs.time }}"
