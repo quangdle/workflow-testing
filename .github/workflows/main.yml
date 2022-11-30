@@ -6,8 +6,15 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - run: |
-          echo "::set-env name=PR_NUMBER::$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")"
+      - uses: jwalton/gh-find-current-pr@v1
+        id: findPr
+        with:
+          state: open
+
+      - run: echo "Your PR is ${PR}"
+        if: success() && steps.findPr.outputs.number
+        env:
+          PR: ${{ steps.findPr.outputs.pr }}
 
       - name: Check out
         uses: actions/checkout@v3
@@ -33,8 +40,6 @@ jobs:
           main_schema_path: ${{ github.workspace }}
           changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
           my-token: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: echo "github PR number $PR_NUMBER"
 
       # Use the output from the `hello` step
       - name: Get the output time
