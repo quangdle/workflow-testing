@@ -55,6 +55,15 @@ const StyledCloseButton = styled(Modal.CloseButton)`
       : theme.colors.disabledText} !important;
 `;
 
+const StyledCloseButton = styled(Modal.CloseButton)`
+  cursor: ${({ disabled }) =>
+    disabled ? "not-allowed" : "pointer"} !important;
+  color: ${({ disabled, theme }) =>
+    disabled
+      ? theme.colors.palette.greyLight45
+      : theme.colors.disabledText} !important;
+`;
+
 const SignInButton = styled.img`
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   opacity: ${(props) => (props.disabled ? "0.5" : "1")};
