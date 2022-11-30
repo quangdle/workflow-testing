@@ -6,6 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
       - uses: jwalton/gh-find-current-pr@v1
         id: findPr
         with:
@@ -15,11 +20,6 @@ jobs:
         if: success() && steps.findPr.outputs.number
         env:
           PR: ${{ steps.findPr.outputs.pr }}
-
-      - name: Check out
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Get changed files
         id: changed-files
