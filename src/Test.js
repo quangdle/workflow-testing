@@ -46,6 +46,15 @@ const TitleSpacing = styled.div`
   margin-bottom: ${themeGet("space.medium")}px;
 `;
 
+const Quang = styled(Modal.CloseButton)`
+  cursor: ${({ disabled }) =>
+    disabled ? "not-allowed" : "pointer"} !important;
+  color: ${({ disabled, theme }) =>
+    disabled
+      ? theme.colors.palette.greyLight45
+      : theme.colors.disabledText} !important;
+`;
+
 const StyledCloseButton = styled(Modal.CloseButton)`
   cursor: ${({ disabled }) =>
     disabled ? "not-allowed" : "pointer"} !important;
@@ -138,7 +147,7 @@ const MailIntegrationModal = ({
             padding: theme.space.medium,
             borderTopLeftRadius: theme.radii.medium,
             borderTopRightRadius: theme.radii.medium,
-            backgroundColor: theme.colors.palette.pinkLight70,
+            backgroundColor: theme.colors.palette.pinkLight90,
           }}
         >
           <img
@@ -148,7 +157,6 @@ const MailIntegrationModal = ({
               width: 200,
               margin: "auto",
               display: "block",
-              color: theme.colors.palette.greyLight42,
               backgroundColor: theme.colors.palette.redLight60,
             }}
           />
@@ -309,4 +317,4 @@ const MailIntegrationModal = ({
 };
 
 export default MailIntegrationModal;
-const a = 13;
+const a = 9;

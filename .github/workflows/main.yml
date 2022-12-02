@@ -34,14 +34,17 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: quangdle/get-suggestion-action@v1.20
+        uses: quangdle/get-suggestion-action@v1.30
         with:
           who-to-greet: "Quang Le"
           main_schema_path: ${{ github.workspace }}
           changed-files: ${{ steps.changed-files.outputs.all_changed_files }}
           my-token: ${{ secrets.GITHUB_TOKEN }}
           pr-number: ${{ steps.findPr.outputs.pr }}
+          commit: ${{ env.GITHUB_SHA }}
 
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+
+      - run: echo "SHA ${GITHUB_SHA}"
